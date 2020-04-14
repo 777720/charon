@@ -21,7 +21,8 @@ class Rect extends XElement {
         width: 0
     }
     constructor(opt: RectOptions) {
-        super(opt);
+        super(opt)
+        this.updateOptions()
     }
 
     render(ctx: CanvasRenderingContext2D) {

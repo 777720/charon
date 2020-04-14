@@ -13,12 +13,13 @@ interface CircleOptions extends XElementOptions {
 
 
 export default class Circle extends XElment {
-    mname = 'circle';
+    name = 'circle';
     shape: CircleShape = {
         cx: 0, cy: 0, r: 100
     }
     constructor(opt: CircleOptions) {
         super(opt)
+        this.updateOptions()
     }
     render(ctx: CanvasRenderingContext2D) {
         let shape = this.shape;

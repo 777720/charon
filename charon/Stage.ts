@@ -12,13 +12,21 @@ class Stage {
     }
 
     delete (xel: XElement) {
-        let index = this.xelements.indexOf(xel)
+        let index = this.xelements.indexOf(xel);
         if (index > -1) {
             this.xelements.splice(index)
         }
     }
+
     getAll () {
-        return this.xelements
+        this.updateXElements();
+        return this.xelements.filter(xel => !xel.ignore)
+    }
+
+    updateXElements () {
+        this.xelements.sort((a, b) => {
+            return a.zLevel - b.zLevel
+        })
     }
 }
 

@@ -4,50 +4,45 @@
     </div>
 </template>
 <script>
-    import  * as Charon from "../charon";
+import  * as Charon from "../charon";
+
 export default {
     data() {
         return {};
     },
     mounted() {
 
-        let cr = Charon.init('#app');
-        let circle1 =  new Charon.Circle({
+        let cr = Charon.init('#app', {
+            height: 300,
+            width: 400
+        });
+        let circle1 = new Charon.Circle({
             shape: {
-                cx: 40,
-                cy: 40,
+                cx: 60,
+                cy: 60,
                 r: 20
-            }
-        })
-        let circle2 =  new Charon.Circle({
-            shape: {
-                cx: 80,
-                cy: 80,
-                r: 10
+            },
+            style: {
+                stroke: '#f00',
+                lineWidth: 1
             }
         })
 
-        let rect1 = new Charon.Rect({
+       //  cr.add(circle1)
+        let rect = new Charon.Rect({
             shape: {
-                width: 200,
-                height: 50,
-                rx: 12,
-                ry: 12
-            }
+                rx: 120,
+                ry: 120,
+                width: 40,
+                height: 40
+            },
+            style: {
+                fill: 'transparent'
+            },
+            origin: [120, 120],
+            rotation: 0.8
         })
-        let rect2 = new Charon.Rect({
-            shape: {
-                width: 100,
-                height: 50,
-                rx: 55,
-                ry: 55
-            }
-        })
-        cr.add(circle1, circle2, rect1, rect2);
-
-        // let canvas = document.querySelector('#canvas');
-        // let ctx = canvas.getContext('2d');
-        // circle.refresh(ctx)
+        cr.add(rect)
     }
 }
 </script>
